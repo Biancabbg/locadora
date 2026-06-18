@@ -1,0 +1,430 @@
+
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locadora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+  <link rel="stylesheet" href="style.css">
+ 
+</head>
+<body>
+ 
+  <div id="app">
+ 
+    <!-- ═══════════════════════════════ HOME ═══════════════════════════════ -->
+    <div class="screen active" id="screen-home">
+      <div class="home-header">
+        <div class="film-strip" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <h1>Locadora</h1>
+        <p>Sistema de gerenciamento de filmes e clientes</p>
+        <div class="strip"></div>
+      </div>
+      <div class="home-cards">
+          
+        <div class="home-card filme" onclick="go('screen-filme')" tabindex="0" role="button" aria-label="Ir para gerenciamento de filmes">
+          <span class="badge">Acervo</span>
+          <div class="icon-bg"><i class="ti ti-movie" aria-hidden="true"></i></div>
+          <h2>Filmes</h2>
+          <p>Gerencie o catálogo de filmes da locadora</p>
+        </div>
+        <div class="home-card cliente" onclick="go('screen-cliente')" tabindex="0" role="button" aria-label="Ir para gerenciamento de clientes">
+          <span class="badge">Membros</span>
+          <div class="icon-bg"><i class="ti ti-users" aria-hidden="true"></i></div>
+         
+          
+          <h2>Clientes</h2>
+          <p>Cadastre e gerencie os clientes e reservas</p>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- ════════════════════════════ MENU FILMES ═══════════════════════════ -->
+    <div class="screen" id="screen-filme">
+      <div class="sub-header">
+        <button class="back-btn" onclick="go('screen-home')" aria-label="Voltar">
+          <i class="ti ti-arrow-left" aria-hidden="true"></i>
+        </button>
+        <div class="sub-header-title">
+          <h2>Filmes</h2>
+          <p>Escolha uma operação</p>
+        </div>
+      </div>
+      <div class="menu-grid">
+        <div class="menu-item filme-color" onclick="go('screen-cadastrar-filme')">
+          <div class="menu-icon"><i class="ti ti-plus" aria-hidden="true"></i></div>
+          <div><h3>Cadastrar</h3><p>Adicionar novo filme ao acervo</p></div>
+        </div>
+        <div class="menu-item filme-color" onclick="go('screen-consultar-todos-filme')">
+          <div class="menu-icon"><i class="ti ti-list" aria-hidden="true"></i></div>
+          <div><h3>Consultar todos</h3><p>Ver todos os filmes cadastrados</p></div>
+        </div>
+        <div class="menu-item filme-color" onclick="go('screen-consultar-id-filme')">
+          <div class="menu-icon"><i class="ti ti-hash" aria-hidden="true"></i></div>
+          <div><h3>Consultar por ID</h3><p>Buscar filme pelo número</p></div>
+        </div>
+        <div class="menu-item filme-color" onclick="go('screen-atualizar-filme')">
+          <div class="menu-icon"><i class="ti ti-edit" aria-hidden="true"></i></div>
+          <div><h3>Atualizar</h3><p>Editar dados de um filme</p></div>
+        </div>
+        <div class="menu-item filme-color" onclick="go('screen-excluir-filme')">
+          <div class="menu-icon"><i class="ti ti-trash" aria-hidden="true"></i></div>
+          <div><h3>Excluir</h3><p>Remover filme do sistema</p></div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- ══════════════════════════ MENU CLIENTES ════════════════════════════ -->
+    <div class="screen" id="screen-cliente">
+      <div class="sub-header">
+        <button class="back-btn" onclick="go('screen-home')" aria-label="Voltar">
+          <i class="ti ti-arrow-left" aria-hidden="true"></i>
+        </button>
+        <div class="sub-header-title">
+          <h2>Clientes</h2>
+          <p>Escolha uma operação</p>
+        </div>
+      </div>
+      <div class="menu-grid">
+        <div class="menu-item cliente-color" onclick="go('screen-cadastrar-cliente')">
+          <div class="menu-icon"><i class="ti ti-user-plus" aria-hidden="true"></i></div>
+          <div><h3>Criar conta</h3><p>Cadastrar novo cliente</p></div>
+        </div>
+        <div class="menu-item cliente-color" onclick="go('screen-consultar-todos-cliente')">
+          <div class="menu-icon"><i class="ti ti-users" aria-hidden="true"></i></div>
+          <div><h3>Todos os clientes</h3><p>Listar todos os membros</p></div>
+        </div>
+        <div class="menu-item cliente-color" onclick="go('screen-consultar-id-cliente')">
+          <div class="menu-icon"><i class="ti ti-hash" aria-hidden="true"></i></div>
+          <div><h3>Consultar por ID</h3><p>Buscar cliente pelo número</p></div>
+        </div>
+        <div class="menu-item cliente-color" onclick="go('screen-atualizar-cliente')">
+          <div class="menu-icon"><i class="ti ti-edit" aria-hidden="true"></i></div>
+          <div><h3>Atualizar</h3><p>Editar dados do cliente</p></div>
+        </div>
+        <div class="menu-item cliente-color" onclick="go('screen-excluir-cliente')">
+          <div class="menu-icon"><i class="ti ti-trash" aria-hidden="true"></i></div>
+          <div><h3>Excluir</h3><p>Remover cliente do sistema</p></div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- ════════════════════════ FORMULÁRIOS — FILME ════════════════════════ -->
+ 
+    <!-- Cadastrar Filme -->
+    <div class="screen" id="screen-cadastrar-filme">
+      <div class="sub-header">
+        <button class="back-btn" onclick="go('screen-filme')" aria-label="Voltar"><i class="ti ti-arrow-left" aria-hidden="true"></i></button>
+        <div class="sub-header-title"><h2>Cadastrar Filme</h2><p>Preencha os dados do novo filme</p></div>
+      </div>
+      <div class="form-card">
+        <form action="Controlar_Filme" method="POST" onsubmit="return validar(this)">
+          <input type="hidden" name="op" value="cadastrar_filme">
+          <label for="cf-nome">Nome do filme</label>
+          <input type="text" id="cf-nome" name="nome" placeholder="Ex: Zootopia" required>
+ 
+          <label for="cf-diretor">Diretor</label>
+          <input type="text" id="cf-diretor" name="diretor" placeholder="Ex: Byron Howard" required>
+ 
+          <div class="form-row">
+            <div>
+              <label for="cf-ano">Ano de publicação</label>
+              <input type="number" id="cf-ano" name="ano_publicacao" placeholder="2016" min="1888" max="2100" required>
+            </div>
+            <div>
+              <label for="cf-preco">Preço do aluguel (R$)</label>
+              <input type="number" id="cf-preco" name="preco_aluguel" step="0.01" placeholder="25.00" min="0" required>
+            </div>
+          </div>
+ 
+          <label for="cf-status">Status</label>
+          <select id="cf-status" name="status" required>
+            <option value="">Selecione...</option>
+            <option value="Disponível">Disponível</option>
+            <option value="Indisponível">Indisponível</option>
+          </select>
+ 
+          <button type="submit" class="submit-btn">
+            <i class="ti ti-plus" aria-hidden="true"></i> Cadastrar Filme
+          </button>
+        </form>
+      </div>
+    </div>
+ 
+    <!-- Consultar Todos Filmes -->
+    <div class="screen" id="screen-consultar-todos-filme">
+      <div class="sub-header">
+        <button class="back-btn" onclick="go('screen-filme')" aria-label="Voltar"><i class="ti ti-arrow-left" aria-hidden="true"></i></button>
+        <div class="sub-header-title"><h2>Consultar Filmes</h2><p>Lista todos os filmes cadastrados</p></div>
+      </div>
+      <div class="form-card centered">
+        <i class="ti ti-movie icon-hero" aria-hidden="true"></i>
+        <p class="hint-text">Clique no botão abaixo para listar<br>todos os filmes do sistema.</p>
+        <form action="Controlar_Filme" method="POST">
+          <input type="hidden" name="op" value="consultar_todos_filmes">
+          <button type="submit" class="submit-btn">
+            <i class="ti ti-list" aria-hidden="true"></i> Listar todos os filmes
+          </button>
+        </form>
+      </div>
+    </div>
+ 
+    <!-- Consultar Filme por ID -->
+    <div class="screen" id="screen-consultar-id-filme">
+      <div class="sub-header">
+        <button class="back-btn" onclick="go('screen-filme')" aria-label="Voltar"><i class="ti ti-arrow-left" aria-hidden="true"></i></button>
+        <div class="sub-header-title"><h2>Consultar por ID</h2><p>Buscar filme pelo número de identificação</p></div>
+      </div>
+      <div class="form-card">
+        <form action="Controlar_Filme" method="POST" onsubmit="return validar(this)">
+          <input type="hidden" name="op" value="consultar_id_filme">
+          <label for="cid-f-id">ID do filme</label>
+          <input type="number" id="cid-f-id" name="id" placeholder="Ex: 1" min="1" required>
+          <button type="submit" class="submit-btn">
+            <i class="ti ti-search" aria-hidden="true"></i> Buscar Filme
+          </button>
+        </form>
+      </div>
+    </div>
+ 
+    <!-- Atualizar Filme -->
+    <div class="screen" id="screen-atualizar-filme">
+      <div class="sub-header">
+        <button class="back-btn" onclick="go('screen-filme')" aria-label="Voltar"><i class="ti ti-arrow-left" aria-hidden="true"></i></button>
+        <div class="sub-header-title"><h2>Atualizar Filme</h2><p>Edite os dados de um filme existente</p></div>
+      </div>
+      <div class="form-card">
+        <form action="Controlar_Filme" method="POST" onsubmit="return validar(this)">
+          <input type="hidden" name="op" value="atualizar_filme">
+          <label for="af-id">ID do filme</label>
+          <input type="number" id="af-id" name="id" placeholder="ID do filme" min="1" required>
+ 
+          <label for="af-nome">Novo nome</label>
+          <input type="text" id="af-nome" name="nome" placeholder="Nome do filme" required>
+ 
+          <label for="af-diretor">Novo diretor</label>
+          <input type="text" id="af-diretor" name="diretor" placeholder="Diretor" required>
+ 
+          <div class="form-row">
+            <div>
+              <label for="af-ano">Ano</label>
+              <input type="number" id="af-ano" name="ano_publicacao" placeholder="Ano" min="1888" max="2100" required>
+            </div>
+            <div>
+              <label for="af-preco">Preço (R$)</label>
+              <input type="number" id="af-preco" name="preco_aluguel" step="0.01" placeholder="Preço" min="0" required>
+            </div>
+          </div>
+ 
+          <label for="af-status">Status</label>
+          <select id="af-status" name="status" required>
+            <option value="">Selecione...</option>
+            <option value="Disponível">Disponível</option>
+            <option value="Indisponível">Indisponível</option>
+          </select>
+ 
+          <button type="submit" class="submit-btn">
+            <i class="ti ti-device-floppy" aria-hidden="true"></i> Salvar Alterações
+          </button>
+        </form>
+      </div>
+    </div>
+ 
+    <!-- Excluir Filme -->
+    <div class="screen" id="screen-excluir-filme">
+      <div class="sub-header">
+        <button class="back-btn" onclick="go('screen-filme')" aria-label="Voltar"><i class="ti ti-arrow-left" aria-hidden="true"></i></button>
+        <div class="sub-header-title"><h2>Excluir Filme</h2><p>Remover permanentemente um filme</p></div>
+      </div>
+      <div class="form-card">
+        <p class="aviso">
+          <i class="ti ti-alert-triangle" aria-hidden="true"></i>
+          Atenção: esta ação não pode ser desfeita.
+        </p>
+        <form action="Controlar_Filme" method="POST" onsubmit="return confirmarExclusao()">
+          <input type="hidden" name="op" value="deletar_filme">
+          <label for="ef-id">ID do filme</label>
+          <input type="number" id="ef-id" name="id" placeholder="ID do filme a excluir" min="1" required>
+          <button type="submit" class="submit-btn danger-btn">
+            <i class="ti ti-trash" aria-hidden="true"></i> Excluir Filme
+          </button>
+        </form>
+      </div>
+    </div>
+ 
+    <!-- ═══════════════════════ FORMULÁRIOS — CLIENTE ════════════════════════ -->
+ 
+    <!-- Cadastrar Cliente -->
+    <div class="screen" id="screen-cadastrar-cliente">
+      <div class="sub-header">
+        <button class="back-btn" onclick="go('screen-cliente')" aria-label="Voltar"><i class="ti ti-arrow-left" aria-hidden="true"></i></button>
+        <div class="sub-header-title"><h2>Criar Conta</h2><p>Cadastrar novo cliente</p></div>
+      </div>
+      <div class="form-card">
+        <form action="Controlar_Cliente" method="POST" onsubmit="return validar(this)">
+          <input type="hidden" name="op" value="cadastrar_cliente">
+          <label for="cc-nome">Nome completo</label>
+          <input type="text" id="cc-nome" name="nome" placeholder="Ex: João Silva" required>
+ 
+          <div class="form-row">
+            <div>
+              <label for="cc-tel">Telefone</label>
+              <input type="text" id="cc-tel" name="telefone" placeholder="(11) 99999-9999" required>
+            </div>
+            <div>
+              <label for="cc-email">E-mail</label>
+              <input type="email" id="cc-email" name="email" placeholder="joao@email.com" required>
+            </div>
+          </div>
+ 
+          <div class="form-row">
+            <div>
+              <label for="cc-reserva">Data da reserva</label>
+              <input type="date" id="cc-reserva" name="data_reserva" required>
+            </div>
+            <div>
+              <label for="cc-devolucao">Data de devolução</label>
+              <input type="date" id="cc-devolucao" name="data_devolucao" required>
+            </div>
+          </div>
+            <label>
+               Filme Reservado
+               <input type="text"
+                      name="nome_filme"
+                      placeholder="Ex: Zootopia">
+           </label>
+          <button type="submit" class="submit-btn cliente-btn">
+            <i class="ti ti-user-plus" aria-hidden="true"></i> Cadastrar Cliente
+          </button>
+        </form>
+      </div>
+    </div>
+ 
+    <!-- Consultar Todos Clientes -->
+    <div class="screen" id="screen-consultar-todos-cliente">
+      <div class="sub-header">
+        <button class="back-btn" onclick="go('screen-cliente')" aria-label="Voltar"><i class="ti ti-arrow-left" aria-hidden="true"></i></button>
+        <div class="sub-header-title"><h2>Todos os clientes</h2><p>Lista completa de membros</p></div>
+      </div>
+      <div class="form-card centered">
+        <i class="ti ti-users icon-hero cliente-icon" aria-hidden="true"></i>
+        <p class="hint-text">Clique no botão abaixo para listar<br>todos os clientes cadastrados.</p>
+        <form action="Controlar_Cliente" method="POST">
+          <input type="hidden" name="op" value="consultar_todos_clientes">
+          <button type="submit" class="submit-btn cliente-btn">
+            <i class="ti ti-list" aria-hidden="true"></i> Listar todos os clientes
+          </button>
+        </form>
+      </div>
+    </div>
+ 
+    <!-- Consultar Cliente por ID -->
+    <div class="screen" id="screen-consultar-id-cliente">
+      <div class="sub-header">
+        <button class="back-btn" onclick="go('screen-cliente')" aria-label="Voltar"><i class="ti ti-arrow-left" aria-hidden="true"></i></button>
+        <div class="sub-header-title"><h2>Consultar por ID</h2><p>Buscar cliente pelo número de identificação</p></div>
+      </div>
+      <div class="form-card">
+        <form action="Controlar_Cliente" method="POST" onsubmit="return validar(this)">
+          <input type="hidden" name="op" value="consultar_id_cliente">
+          <label for="cid-c-id">ID do cliente</label>
+          <input type="number" id="cid-c-id" name="id" placeholder="Ex: 1" min="1" required>
+          <button type="submit" class="submit-btn cliente-btn">
+            <i class="ti ti-search" aria-hidden="true"></i> Buscar Cliente
+          </button>
+        </form>
+      </div>
+    </div>
+ 
+    <!-- Atualizar Cliente -->
+    <div class="screen" id="screen-atualizar-cliente">
+      <div class="sub-header">
+        <button class="back-btn" onclick="go('screen-cliente')" aria-label="Voltar"><i class="ti ti-arrow-left" aria-hidden="true"></i></button>
+        <div class="sub-header-title"><h2>Atualizar Cliente</h2><p>Editar dados de um cliente</p></div>
+      </div>
+      <div class="form-card">
+        <form action="Controlar_Cliente" method="POST" onsubmit="return validar(this)">
+          <input type="hidden" name="op" value="atualizar_cliente">
+          
+          <label for="ac-id">ID do cliente</label>
+          <input type="number" id="ac-id" name="id" placeholder="ID do cliente" min="1" required>
+            
+                <label for="ac-nome">Novo nome</label>
+                <input type="text"
+                   id="ac-nome"
+                   name="nome"
+                   placeholder="Digite o novo nome"
+                   required>
+           
+          <div class="form-row">
+            <div>
+              <label for="ac-tel">Novo telefone</label>
+              <input type="text" id="ac-tel" name="telefone" placeholder="(11) 99999-9999" required>
+            </div>
+            <div>
+              <label for="ac-email">Novo e-mail</label>
+              <input type="email" id="ac-email" name="email" placeholder="novo@email.com" required>
+            </div>
+          </div>
+ 
+          <div class="form-row">
+            <div>
+              <label for="ac-reserva">Nova data de reserva</label>
+              <input type="date" id="ac-reserva" name="data_reserva" required>
+            </div>
+            <div>
+              <label for="ac-devolucao">Nova data de devolução</label>
+              <input type="date" id="ac-devolucao" name="data_devolucao" required>
+            </div>
+          </div>
+          <label>
+                Filme Reservado
+                <input type="text"
+                       name="nome_filme"
+                       placeholder="Ex: Zootopia">
+            </label>
+ 
+          <button type="submit" class="submit-btn cliente-btn">
+            <i class="ti ti-device-floppy" aria-hidden="true"></i> Salvar Alterações
+          </button>
+        </form>
+      </div>
+    </div>
+ 
+    <!-- Excluir Cliente -->
+    <div class="screen" id="screen-excluir-cliente">
+      <div class="sub-header">
+        <button class="back-btn" onclick="go('screen-cliente')" aria-label="Voltar"><i class="ti ti-arrow-left" aria-hidden="true"></i></button>
+        <div class="sub-header-title"><h2>Excluir Cliente</h2><p>Remover cliente do sistema</p></div>
+      </div>
+      <div class="form-card">
+        <p class="aviso">
+          <i class="ti ti-alert-triangle" aria-hidden="true"></i>
+          Atenção: esta ação não pode ser desfeita.
+        </p>
+        <form action="Controlar_Cliente" method="POST" onsubmit="return confirmarExclusao()">
+          <input type="hidden" name="op" value="deletar_cliente">
+          <label for="ec-id">ID do cliente</label>
+          <input type="number" id="ec-id" name="id" placeholder="ID do cliente a excluir" min="1" required>
+          <button type="submit" class="submit-btn danger-btn">
+            <i class="ti ti-trash" aria-hidden="true"></i> Excluir Cliente
+          </button>
+        </form>
+      </div>
+    </div>
+ 
+  </div><!-- /app -->
+ <script src="java_script.js"></script>
+</body>
+</html>
